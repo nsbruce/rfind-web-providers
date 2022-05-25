@@ -1,0 +1,28 @@
+
+
+DEFAULT_SOCKETIO_VARS = {
+    'SOCKETIO_PROTOCOL': 'http',
+    'SOCKETIO_IP': 'localhost',
+    'SOCKETIO_PORT': 4001,
+    'SOCKETIO_BACKEND_NAMESPACE': '/backend',
+}
+
+DEFAULT_S3_VARS = {
+    'S3_CONFIG_JSON': '',
+    'S3_PORT': 1234,
+    'DELIVERY_CLIENT_IP': 'localhost',
+    'S3_REGEX': '',
+}
+
+DEFAULT_SIM_VARS = {
+    'H5_DATA_FILE': '',
+}
+
+DEFAULT_DATA_VARS = {
+    'START_FREQ': 0,
+    'BANDWIDTH': 2e9,
+    'INTEGRATION_RATE': 1,
+    'SPECTRA_MIN_VALUE': -100,
+    'SPECTRA_MAX_VALUE': -20,
+    'N_BINS': 600000,
+}
