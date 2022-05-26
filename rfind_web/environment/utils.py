@@ -16,7 +16,7 @@ def get_env_dir() -> Path:
     return Path(__file__).parent.parent.parent
 
 
-def get_env_files() -> list:
+def get_env_files() -> list[Path]:
     """
     Get the list of environment files
     """
@@ -25,7 +25,7 @@ def get_env_files() -> list:
     return list(env_files)
 
 
-def load_env() -> dict:
+def load_env() -> dict[str, str]:
     """
     Load environment variables from .env file
     """
@@ -43,9 +43,9 @@ def load_env() -> dict:
     return env
 
 
-def file_to_dict(p: Path) -> dict:
+def file_to_dict(p: Path) -> dict[str, str]:
     """
-    Convert a env formatted file to a dictionary.
+    Convert a env formatted file to a dictionary
     TODO could be replaced with python-dotenv package
     """
     env = {}
@@ -58,13 +58,17 @@ def file_to_dict(p: Path) -> dict:
     return env
 
 
-def get_all_defaults() -> dict:
+def get_all_defaults() -> dict[str, str]:
     """
     Get the default values for all environment variables
+    *Stringification is done to match the output of file_to_dict
     """
-    return {
+
+    all_vals = {
         **DEFAULT_SOCKETIO_VARS,
         **DEFAULT_DATA_VARS,
         **DEFAULT_S3_VARS,
         **DEFAULT_SIM_VARS,
     }
+    stringified_vals = {k: str(v) for k, v in all_vals.items()}
+    return stringified_vals
