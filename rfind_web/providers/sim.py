@@ -22,6 +22,7 @@ class DataProviderSim(DataProviderSIOBase):
             (1.4e9, 200e3),
             (1.5e9, 20e6),
         ]
+        self.sigma = 1.0
 
         self.t_int = float(self.env["INTEGRATION_RATE"])
         self.nbins = int(self.env["N_BINS"])
@@ -30,7 +31,7 @@ class DataProviderSim(DataProviderSIOBase):
         outMax = float(self.env["SPECTRA_MAX_VALUE"])
         self.outDiff = outMax - self.outMin
 
-        self.generator = self.spec_gen(noise_pwr=1.0)
+        self.generator = self.spec_gen(noise_pwr=self.sigma)
 
     def __shift_signals__(self) -> None:
         """
