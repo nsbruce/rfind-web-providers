@@ -112,4 +112,7 @@ def start() -> None:
     Starts the data provider
     """
     provider = DataProviderSim()
-    provider.run()
+    try:
+        provider.run()
+    except KeyboardInterrupt:
+        pass

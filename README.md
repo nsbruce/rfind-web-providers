@@ -25,6 +25,18 @@ provider.sigma = 0.5
 provider.run()
 ```
 
+### USRP
+
+To use this package with a USRP you need to have installed the UHD Python API from source at v4.1.0.5.
+
+The provider will automatically detect a USRP plugged into the system and collect spectra to emit from it. To run with default values (which are drawn from the generated .env.local file), use `poetry run usrp`. If you want to adjust the gain of the USRP or other parameters you can do something like
+
+```python
+from rfind_web.providers import DataProviderUSRP
+provider = DataProviderUSRP(gain=10.0)
+provider.run()
+```
+
 ## Contributing
 
 This package is mypy and flake8 compliant. Before issuing a PR, please lint with `poetry run poe lint`.

@@ -30,7 +30,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 generate-env = 'rfind_web.environment.generate:main'
 sim = 'rfind_web.providers.sim:start'
-# usrp = 'rfind_web.providers.usrp:start'
+usrp = 'rfind_web.providers.usrp:start'
 # s3 = 'rfind_web.providers.s3:start'
 # h5 = 'rfind_web.providers.h5:start'
 
