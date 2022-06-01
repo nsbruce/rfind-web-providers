@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 import socketio  # type: ignore # TODO check whether stubs/types are available
 
@@ -31,7 +31,7 @@ class SIOClient:
         self.sio.connect(self.addr, namespaces=[self.env["SOCKETIO_BACKEND_NAMESPACE"]])
         self.__register_handlers__()
 
-    def emit(self, event: str, data: dict[str, Union[str, float, bytes]]) -> None:
+    def emit(self, event: str, data: Dict[str, Union[str, float, bytes]]) -> None:
         """
         Emit a socketio event
         TODO type for data might need to be changed
