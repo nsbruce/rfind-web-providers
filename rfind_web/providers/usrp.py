@@ -26,6 +26,8 @@ class DataProviderUSRP(DataProviderSIOBase):
             (1, self.nbins), dtype=np.complex64
         )
 
+        self.setup_usrp()
+
     def setup_usrp(self) -> None:
         self.usrp = uhd.usrp.MultiUSRP()
         self.usrp.set_rx_rate(self.fs, 0)
@@ -81,6 +83,8 @@ class DataProviderUSRP(DataProviderSIOBase):
         return np.array(bins)
 
     def run(self) -> None:
+
+        self.start_streaming()
         while True:
             start = time.time()
 
