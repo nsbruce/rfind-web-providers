@@ -37,6 +37,10 @@ provider = DataProviderUSRP(gain=10.0)
 provider.run()
 ```
 
+### S3
+
+The S3 data provider is not nearly as well abstracted as the USRP or simulation ones. It is currently setup to provide integrations from the DRAO RFInd S3 bucket. To run with default values (which are drawn from the generated .env.local file), use `poetry run s3`. If you want to see the implementation check out [s3.py](./rfind_web/providers/s3.py).
+
 ## Contributing
 
 This package is mypy and flake8 compliant. Before issuing a PR, please lint with `poetry run poe lint`.
